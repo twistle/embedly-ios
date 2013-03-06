@@ -19,7 +19,7 @@
 //
 
 #import "Embedly.h"
-#import "JSON.h"
+#import "sbjsonparser.h"
 
 @implementation Embedly
 //===========================================================
