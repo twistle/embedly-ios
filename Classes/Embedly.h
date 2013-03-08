@@ -3,7 +3,7 @@
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
- 
+
 // http://www.apache.org/licenses/LICENSE-2.0
 
 // Unless required by applicable law or agreed to in writing, software
@@ -46,32 +46,19 @@
 //===========================================================
 
 @interface Embedly : NSObject {
-	NSString *key;
-	NSString *endpoint;
-	NSString *userAgent;
-	NSNumber *maxHeight;
-	NSNumber *maxWidth;
-    NSMutableData *returnedData;
-	NSURLConnection *con;
-	
-	// the delegate
-	id<EmbedlyDelegate> delegate;
 }
 
 //===========================================================
 #pragma mark -
 #pragma mark Properties
 //===========================================================
-@property (nonatomic, retain) NSString *key;
-@property (nonatomic, assign) NSString *endpoint;
-@property (nonatomic, retain) NSString *userAgent;
-@property (nonatomic, retain) NSNumber *maxHeight;
-@property (nonatomic, retain) NSNumber *maxWidth;
-@property (nonatomic, retain) NSMutableData *returnedData;
+@property (nonatomic, strong) NSString *key;
+@property (nonatomic, copy) NSString *endpoint;
+@property (nonatomic, strong) NSString *userAgent;
+@property (nonatomic, strong) NSNumber *maxHeight;
+@property (nonatomic, strong) NSNumber *maxWidth;
 
-@property (nonatomic, retain) NSURLConnection *con;
-
-@property (nonatomic, assign) id<EmbedlyDelegate> delegate;
+@property (nonatomic, weak) id<EmbedlyDelegate> delegate;
 
 
 //===========================================================
@@ -92,7 +79,6 @@
 - (void)callWithArray:(NSArray *)urls;
 - (void)callWithUrl:(NSString *)url;
 - (void)callEmbedlyWithURL:(NSURL *)url;
-- (void)stop;
 
 @end
 
@@ -109,6 +95,6 @@
 - (void)embedlyDidReturnRawData:(NSData *)data;
 // pass through for NSURLConnection didFailWithError
 - (void)embedlyDidFailWithError:(NSError *)error;
-// pass through for NSURLConnection didReceiveResponse 
+// pass through for NSURLConnection didReceiveResponse
 - (void)embedlyDidReceiveResponse:(NSURLResponse *)response;
 @end
