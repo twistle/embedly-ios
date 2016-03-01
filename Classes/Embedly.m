@@ -81,7 +81,7 @@
     
     url = [self escapeUrlWithString:url];
     
-	NSString* request = [[NSString alloc] initWithFormat:@"http://%@/%@?&url=%@", kEmbedlyProPath, self.endpoint, url];
+	NSString* request = [[NSString alloc] initWithFormat:@"https://%@/%@?&url=%@", kEmbedlyProPath, self.endpoint, url];
     if( self.key != nil){
 		request = [request stringByAppendingFormat:@"&key=%@", self.key];
 	}
@@ -105,7 +105,7 @@
 	}
 	set = [set substringFromIndex:1];	// remove the initial , from the url string
 	
-	NSString* request = [[NSString alloc] initWithFormat:@"http://%@/%@?&urls=%@", kEmbedlyProPath, self.endpoint, set];
+	NSString* request = [[NSString alloc] initWithFormat:@"https://%@/%@?&urls=%@", kEmbedlyProPath, self.endpoint, set];
 	
 	if( self.key != nil){
 		request = [request stringByAppendingFormat:@"&key=%@", self.key];
